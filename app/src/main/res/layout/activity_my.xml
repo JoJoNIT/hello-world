@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyActivity"
+    android:orientation="vertical">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+        <ImageView
+            android:id="@+id/iv_person"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/myself"
+            android:layout_marginLeft="20dp"
+            />
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+
+            android:layout_toRightOf="@id/iv_person"
+            android:text="请登录"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_marginLeft="50dp"
+
+            />
+
+</RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_split"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#0099cc"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp">
+                <ImageView
+                    android:id="@+id/iv_message"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/message"
+                    android:layout_marginLeft="40dp"
+                    />
+                <ImageView
+                    android:id="@+id/iv_collect"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@id/iv_message"
+                    android:layout_marginLeft="40dp"
+                    android:src="@drawable/collect" />
+                <ImageView
+                    android:id="@+id/iv_setting"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_toRightOf="@id/iv_collect"
+
+                    android:src="@drawable/sett" />
+                <ImageView
+                    android:id="@+id/iv_history"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_toRightOf="@id/iv_setting"
+                    android:layout_marginRight="30dp"
+
+                    android:src="@drawable/history"/>
+
+        </RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="45dp"
+            android:text="消息"
+            android:textSize="15sp"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/tv_collect"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@id/tv_message"
+            android:text="收藏"
+            android:textColor="#000000"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/tv_setting"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/tv_collect"
+            android:layout_marginLeft="40dp"
+            android:text="设置"
+            android:textSize="15sp"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/tv_history"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/tv_setting"
+            android:text="历史"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:layout_marginLeft="40dp"/>
+</RelativeLayout>
+<TextView
+    android:id="@+id/tv_split_2"
+    android:layout_width="match_parent"
+    android:layout_height="10dp"
+    android:background="#0099cc"
+    android:layout_marginBottom="10dp"/>
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="资料修改"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:drawableLeft="@drawable/ic_rate_review_black_24dp"
+            />
+        <Button
+            android:id="@+id/btn_whereof"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="关于我们"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/ic_priority_high_black_24dp"/>
+        <Button
+            android:id="@+id/btn_help"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="帮助"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:drawableLeft="@drawable/ic_mood_black_24dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="检查更新"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/ic_sync_black_24dp"/>
+
+
+</LinearLayout>
