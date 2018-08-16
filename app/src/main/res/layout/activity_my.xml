@@ -83,7 +83,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp">
-        <TextView
+        <Button
             android:id="@+id/tv_message"
             android:layout_width="40dp"
             android:layout_height="30dp"
@@ -91,7 +91,7 @@
             android:text="消息"
             android:textSize="15sp"
             android:textColor="#000000"/>
-        <TextView
+        <Button
             android:id="@+id/tv_collect"
             android:layout_width="40dp"
             android:layout_height="30dp"
@@ -100,7 +100,7 @@
             android:text="收藏"
             android:textColor="#000000"
             android:textSize="15sp"/>
-        <TextView
+        <Button
             android:id="@+id/tv_setting"
             android:layout_width="40dp"
             android:layout_height="30dp"
@@ -109,7 +109,7 @@
             android:text="设置"
             android:textSize="15sp"
             android:textColor="#000000"/>
-        <TextView
+        <Button
             android:id="@+id/tv_history"
             android:layout_width="40dp"
             android:layout_height="30dp"
@@ -157,6 +157,31 @@
             android:textColor="#000000"
             android:textSize="15sp"
             android:drawableLeft="@drawable/ic_sync_black_24dp"/>
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+     <Button
+         android:id="@+id/btn_botton1"
+         android:layout_width="40dp"
+         android:layout_height="40dp"
+         android:text="首页"
+         android:textSize="15sp"
+         android:textColor="#000000" />
+        <Button
+            android:id="@+id/btn_botton2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="客服"
+            android:textColor="#000000"
+            android:textSize="15sp"/>
+        <Button
+            android:id="@+id/btn_botton3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="我的"
+            android:textSize="15sp"
+            android:textColor="#000000"/>
+</RelativeLayout>
 
 </LinearLayout>
