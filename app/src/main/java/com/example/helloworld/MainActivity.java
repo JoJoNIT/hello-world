@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnEditText,mBtnRadioButton;
     private Button mBtnCheckBox;
     private Button mBtnSpinner;
-    private Button mBtnMy;
+    private Button mBtnMy,mBtnTimePicker;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnCheckBox = findViewById(R.id.btn_checkbox);
         mBtnSpinner = findViewById(R.id.btn_spinner);
         mBtnMy = findViewById(R.id.btn_my);
+        mBtnTimePicker = findViewById(R.id.btn_timepicker);
         setListeners();
     }
     private void setListeners(){
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnCheckBox.setOnClickListener(onClick);
         mBtnSpinner.setOnClickListener(onClick);
         mBtnMy.setOnClickListener(onClick);
+        mBtnTimePicker.setOnClickListener(onClick);
     }
     private class OnClick implements View.OnClickListener{
         @Override
@@ -78,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_my:
                     intent = new Intent(MainActivity.this,MyActivity.class);
+                case R.id.btn_timepicker:
+                    intent = new Intent(MainActivity.this, TimePickerActivity.class);
             }
             startActivity(intent);
         }
