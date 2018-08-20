@@ -25,6 +25,7 @@
         <activity android:name=".SpinnerActivity" />
         <activity android:name=".MyActivity" />
         <activity android:name=".TimePickerActivity" />
+        <activity android:name=".CustomPopupWindowActivity"></activity>
     </application>
 
 </manifest>

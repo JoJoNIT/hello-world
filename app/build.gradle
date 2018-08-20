@@ -19,6 +19,8 @@ android {
     }
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
+
+
 }
 
 dependencies {
@@ -32,4 +34,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:28'
     compile 'com.contrarywind:wheelview:4.0.8'
     compile 'com.wdullaer:materialdatetimepicker:3.6.3'
+
 }

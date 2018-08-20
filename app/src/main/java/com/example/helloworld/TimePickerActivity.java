@@ -10,13 +10,20 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -24,7 +31,7 @@ import android.widget.Toast;
 import java.lang.reflect.Field;
 import java.sql.Time;
 import java.util.Arrays;
-
+import android.widget.PopupWindow;
 
 public class TimePickerActivity extends AppCompatActivity {
 //        implements TimePickerDialog.OnTimeSetListener{
@@ -33,7 +40,8 @@ public class TimePickerActivity extends AppCompatActivity {
      private static final String TAG = "TimePickerActivity";
     private Spinner spinner;
     private TimePicker tp1,tp2;
-
+    private TextView mTvpop;
+    private CustomPopWindow mCustomPopWindow;
 
 //    public void onTimeSet(RadialPickerLayout view,int hourOfDay,int minute,int second){
 //        String time = "You picker the following time:"+hourOfDay+"h"+minute+"m"+second;
@@ -41,6 +49,13 @@ public class TimePickerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_picker);
+        mTvpop = (TextView) findViewById(R.id.tv_pop);
+        mTvpop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopMenu();
+            }
+        });
 
         tp1 = (TimePicker)findViewById(R.id.tp1);
         tp1.setIs24HourView(true);
@@ -82,28 +97,66 @@ public class TimePickerActivity extends AppCompatActivity {
 //            }
 //        });
 
-        String[] ctype = new String[]{"重复", "每日", "工作日", "自定义"};
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ctype);  //创建一个数组适配器
-        adapter.setDropDownViewResource(android.R.layout.simple_gallery_item);     //设置下拉列表框的下拉选项样式
-        spinner = findViewById(R.id.spinner);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String cardNumber = spinner.getSelectedItem().toString();
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+//        String[] ctype = new String[]{"重复", "每日", "工作日", "自定义"};
+//        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ctype);  //创建一个数组适配器
+//        adapter.setDropDownViewResource(android.R.layout.simple_selectable_list_item);     //设置下拉列表框的下拉选项样式
+//        spinner = findViewById(R.id.spinner);
+//        spinner.setAdapter(adapter);
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                String cardNumber = spinner.getSelectedItem().toString();
+//
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
 
 
     }
-
+private void showPopMenu(){
+        View contentView = LayoutInflater.from(this).inflate(R.layout.pop_menu,null);
+        handleLogic(contentView);
+        mCustomPopWindow=new CustomPopWindow.PopupWindowBuilder(this)
+                .setView(contentView)
+                .create()
+                .showAtLocation(findViewById(R.id.ll_root), Gravity.BOTTOM,0,0);
+}
+private void handleLogic(View contentView){
+    View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(mCustomPopWindow!=null){
+                mCustomPopWindow.dissmiss();
+            }
+            String showContent = "";
+            switch (view.getId()){
+                case R.id.menu1:
+                    showContent = "重复";
+                    break;
+                case R.id.menu2:
+                    showContent = "每日";
+                    break;
+                case R.id.menu3:
+                    showContent = "工作日";
+                    break;
+                case R.id.menu4:
+                    showContent = "自定义";
+                    break;
+            }
+            Toast.makeText(TimePickerActivity.this,showContent,Toast.LENGTH_SHORT).show();
+            mTvpop.setText(showContent);
+        }
+    };
+contentView.findViewById(R.id.menu1).setOnClickListener(listener);
+    contentView.findViewById(R.id.menu2).setOnClickListener(listener);
+    contentView.findViewById(R.id.menu3).setOnClickListener(listener);
+    contentView.findViewById(R.id.menu4).setOnClickListener(listener);
+}
 //    @Override
 //    public void onTimeSet(TimePicker timePicker, int i, int i1) {
 //        String time = "You picked the following time: "+i+"h"+i1+"m";
